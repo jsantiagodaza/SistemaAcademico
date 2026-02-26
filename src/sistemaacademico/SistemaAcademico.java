@@ -24,12 +24,12 @@ public class SistemaAcademico {
             System.out.println("|            SISTEMA ACADEMICO             |");
             System.out.println("_______________________________");
 
-            System.out.println("|1 --> Registrar Estudiante");
+            System.out.println("|1 --> Registro de Estudiante");
             System.out.println("|2 --> Listar Estudiantes");
             System.out.println("|3 --> Buscar Estudiante");
-            System.out.println("|4 --> Actualizar Estudiante");
-            System.out.println("|5 --> Eliminar Estudiante");
-            System.out.println("|6 --> Salir");
+            System.out.println("|4 --> Actualizar a un Estudiante");
+            System.out.println("|5 --> Eliminar a un Estudiante");
+            System.out.println("|6 --> Salir del sistema");
 
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
