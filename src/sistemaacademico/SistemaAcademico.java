@@ -1,4 +1,3 @@
-
 package sistemaacademico;
 
 import java.util.ArrayList;
@@ -6,12 +5,12 @@ import java.util.Scanner;
 
 public class SistemaAcademico {
 
-  
-    public static void main(String[] args) { 
-        ArrayList<Asignatura> asignaturas = new ArrayList<>();
-        ArrayList<Estudiante> estudiantes = new ArrayList<>();
-        ArrayList<Nota> notas = new ArrayList<>();
-        
+    static ArrayList<Asignatura> asignaturas = new ArrayList<>();
+    static ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    static ArrayList<Nota> notas = new ArrayList<>();
+
+    public static void main(String[] args) {
+
         mostrarMenu();
     }
 
@@ -37,7 +36,5 @@ public class SistemaAcademico {
 
         } while (opcion != 0);
     }
-    }
-    
 
-
+}
