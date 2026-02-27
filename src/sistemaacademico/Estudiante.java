@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sistemaacademico;
-
-/**
- *
- * @author santi
- */
+//todo esto es base para poder probar un metodo, Xavi haz la clase correctamente, -santiago
 public class Estudiante {
-    
+    private int id;
+    private String nombre;
+    private int edad;
+
+    public Estudiante(int id, String nombre, int edad) {
+        this.id = id;
+        this.nombre = nombre;
+        this.edad = edad;
+    }
 }
