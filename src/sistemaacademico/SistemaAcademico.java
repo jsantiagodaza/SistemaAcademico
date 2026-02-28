@@ -125,6 +125,8 @@ public class SistemaAcademico {
         System.out.println("Digite el ID del estudiante a actualizar:");
         int id = sc.nextInt();
         sc.nextLine();
+        
+        
 
         for (Estudiante e : estudiantes) {
             if (e.getId() == id) { //<--si lo encuentra entonces si se puede hacer el cambio de la información
