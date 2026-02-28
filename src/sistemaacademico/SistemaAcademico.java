@@ -5,14 +5,16 @@ import java.util.Scanner;
 
 public class SistemaAcademico {
 
-    static ArrayList<Asignatura> asignaturas = new ArrayList<>();
-    static ArrayList<Estudiante> estudiantes = new ArrayList<>();
-    static ArrayList<Nota> notas = new ArrayList<>();
+    static ArrayList<Asignatura> asignaturas = new ArrayList<>(); //<--el arrayList para Asignatura
+    static ArrayList<Estudiante> estudiantes = new ArrayList<>(); //<--el arrayList para Estudiante
+    static ArrayList<Nota> notas = new ArrayList<>(); //<--el arrayList para la Nota
 
     public static void main(String[] args) {
-        mostrarMenu();
+        mostrarMenu(); //<--el main solo muestra el menú
     }
-    public static void mostrarMenu() {
+
+    //De aquí en adelante son las funciones y Metodos que muestra el main Por si quieren entenderlo mejor
+    public static void mostrarMenu() { //<--Con esto, el main ejecuta el menú principal
         Scanner scanner = new Scanner(System.in);
         int opcion;
         do {
@@ -26,7 +28,7 @@ public class SistemaAcademico {
             System.out.println("|5 --> Eliminar a un Estudiante");
             System.out.println("|6 --> Salir del sistema");
             System.out.print("Seleccione una opción: ");
-            
+
             opcion = scanner.nextInt();
             scanner.nextLine();
 
@@ -40,24 +42,37 @@ public class SistemaAcademico {
                 default:
                     System.out.println("Opción no válida.");
             }
-        } while (opcion != 6); 
+        } while (opcion != 6);
     }
 
-    public static void registrarEstudiante() {
+    public static void registrarEstudiante() { //<--Para registrar a los estudiantes
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite la ID:");
         int id = sc.nextInt();
-        sc.nextLine(); 
-        
+        sc.nextLine();
+
         System.out.println("Digite el Nombre:");
         String nombre = sc.nextLine();
 
         System.out.println("Digite la edad:");
         int edad = sc.nextInt();
-        
+
         Estudiante estudiante = new Estudiante(id, nombre, edad);
         estudiantes.add(estudiante);
-        
+
         System.out.println("Estudiante Registrado con éxito.");
+        
+    }
+    public static void listarEstudiante() { //<--esto lo que hace es recorrer la lista de los estudiantes para mostrar sus datos
+        if (estudiantes.isEmpty()) { //<--en caso de que esté vació
+            System.out.println("No hay estudiantes registrados aún.");
+            return;
+        }
+
+        for (Estudiante e : estudiantes) {
+            System.out.println(e);
+        }
     }
 }
+    
+
