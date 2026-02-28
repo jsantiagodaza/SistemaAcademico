@@ -42,6 +42,9 @@ public class SistemaAcademico {
                 case 3:
                     buscarEstudiante();
                     break;
+                 case 5:
+                    eliminarEstudiante();
+                    break;
 
                 case 6:
                     System.out.println("Saliendo...");
@@ -97,4 +100,19 @@ public class SistemaAcademico {
 
         System.out.println("No se encontró un estudiante con esa identificación.");
     }
+        public static void eliminarEstudiante(){
+        Scanner sc = new Scanner(System.in);
+    System.out.println("Digite el ID del estudiante a eliminar:");
+    int id = sc.nextInt();
+
+    for (Estudiante e : estudiantes) {
+        if (e.getId() == id) { //<--si encuentra la id
+            estudiantes.remove(e); //<--la borra
+            System.out.println("Estudiante eliminado correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("No se encontró un estudiante con ese ID."); //<--si no encuentra la id
+        }
 }
