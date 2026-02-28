@@ -39,6 +39,9 @@ public class SistemaAcademico {
                 case 2:
                     listarEstudiante();
                     break;
+                case 3:
+                    buscarEstudiante();
+                    break;
 
                 case 6:
                     System.out.println("Saliendo...");
@@ -78,5 +81,20 @@ public class SistemaAcademico {
             System.out.println(e);
         }
     }
-    
+
+    public static void buscarEstudiante() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite el ID del estudiante a buscar:");
+        int id = sc.nextInt();
+
+        for (Estudiante e : estudiantes) {
+            if (e.getId() == id) {
+                System.out.println("Estudiante encontrado:");
+                System.out.println(e);
+                return;
+            }
+        }
+
+        System.out.println("No se encontró un estudiante con esa identificación.");
+    }
 }

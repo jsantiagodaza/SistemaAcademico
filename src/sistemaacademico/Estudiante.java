@@ -1,5 +1,4 @@
 package sistemaacademico;
-//todo esto es base para poder probar un metodo, Xavi haz la clase correctamente, -santiago
 //pendiente y a la espera del Dev1, 
 public class Estudiante {
     private int id;
