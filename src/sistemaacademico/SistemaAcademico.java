@@ -36,6 +36,10 @@ public class SistemaAcademico {
                 case 1:
                     registrarEstudiante();
                     break;
+                case 2:
+                    listarEstudiante();
+                    break;
+
                 case 6:
                     System.out.println("Saliendo...");
                     break;
@@ -61,8 +65,9 @@ public class SistemaAcademico {
         estudiantes.add(estudiante);
 
         System.out.println("Estudiante Registrado con éxito.");
-        
+
     }
+
     public static void listarEstudiante() { //<--esto lo que hace es recorrer la lista de los estudiantes para mostrar sus datos
         if (estudiantes.isEmpty()) { //<--en caso de que esté vació
             System.out.println("No hay estudiantes registrados aún.");
@@ -74,5 +79,3 @@ public class SistemaAcademico {
         }
     }
 }
-    
-
