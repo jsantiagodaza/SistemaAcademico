@@ -70,6 +70,15 @@ public class Nota {
         }
         return salida;
     }
+    
+    public static Nota buscarNota(String noNota) {
+        for (Nota n : listaNotas) {
+            if (n.periodo.equalsIgnoreCase(noNota)) {
+                return n;
+            }
+        }
+        return null;
+    }
 }
 
 
