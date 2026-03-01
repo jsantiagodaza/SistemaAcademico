@@ -131,4 +131,41 @@ class Asignatura {
         System.out.println("Asignatura no encontrada.");
     }
 
+    public void actualizarAsignatura() {
+
+    if (asignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    sc.nextLine(); // limpiar buffer
+    System.out.print("Ingrese el codigo de la asignatura a actualizar: ");
+    String codigo = sc.nextLine();
+
+    for (Asignatura a : asignaturas) {
+
+        if (a.getCodigo().equalsIgnoreCase(codigo)) {
+
+            System.out.print("Nuevo nombre: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("Nuevos creditos: ");
+            int creditos = sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Nuevo docente: ");
+            String docente = sc.nextLine();
+
+            a.setNombre(nombre);
+            a.setCreditos(creditos);
+            a.setDocentes(docente);
+
+            System.out.println("Asignatura actualizada correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}
+    
 }
