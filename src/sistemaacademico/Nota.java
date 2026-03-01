@@ -44,7 +44,14 @@ public class Nota {
     public Asignatura getAsignatura() {
         return asignatura;
     }
- 
+  @Override
+    public String toString() {
+        return "Periodo: " + periodo
+             + " | Valor: " + valor
+             + " | Estudiante: " + estudiante.getNombre() + " " + estudiante.getApellido()
+             + " | Asignatura: " + asignatura.getNombre();
+    }
+    
    
 }
 

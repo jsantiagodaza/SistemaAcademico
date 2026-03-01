@@ -2,6 +2,7 @@ package sistemaacademico;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class SistemaAcademico {
 
     static ArrayList<Asignatura> asignaturas = new ArrayList<>(); //<--el arrayList para Asignatura
@@ -10,7 +11,7 @@ public class SistemaAcademico {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int opcionPrincipal; 
+        int opcionPrincipal;
 
         do {
             limpiarLaConsola(); //<--para que de ese aspecto mas pulcro 
@@ -21,7 +22,7 @@ public class SistemaAcademico {
             System.out.println("|   0 --> Salir del sistema");
             System.out.print("|  Seleccione una opción: ");
             opcionPrincipal = sc.nextInt();
- System.out.println("|-----------------------------------|");
+            System.out.println("|-----------------------------------|");
             switch (opcionPrincipal) {
                 case 1:
                     menuEstudiantes();
@@ -31,9 +32,8 @@ public class SistemaAcademico {
                     menuAsignaturas();
                     break;
                 case 3:
-                 menuNotas();
+                    menuNotas();
                     break;
-                
 
                 case 0:
                     limpiarLaConsola();
@@ -47,33 +47,43 @@ public class SistemaAcademico {
         } while (opcionPrincipal != 0);
 
     }
-public static void menuNotas() {
-    int opcion;
-    do {
-        limpiarLaConsola();
-        System.out.println("\n|          GESTIÓN DE NOTAS         |");
-        System.out.println("| 1 --> Registrar Nota          |");
-        System.out.println("| 2 --> Listar Todas las Notas      |");
-        System.out.println("| 3 --> Buscar Nota por Periodo     |");
-        System.out.println("| 4 --> Actualizar Nota             |");
-        System.out.println("| 5 --> Eliminar Nota               |");
-        System.out.println("| 0 --> Volver                      |");
-        System.out.print("| Seleccione una opción: ");
-        opcion = sc.nextInt();
-        sc.nextLine(); // Limpiar buffer
 
-        switch (opcion) {
-                case 1: registrarNota(); break;
-                case 2: listarNotas(); break;
-                case 3: 
-                System.out.print("Periodo a buscar: ");
-                buscarNota(sc.nextLine());
-                break;
-                case 4: actualizarNota(); break;
-                case 5: eliminarNota(); break;
-}
+    public static void menuNotas() {
+        int opcion;
+        do {
+            limpiarLaConsola();
+            System.out.println("\n|          GESTIÓN DE NOTAS         |");
+            System.out.println("| 1 --> Registrar Nota          |");
+            System.out.println("| 2 --> Listar Todas las Notas      |");
+            System.out.println("| 3 --> Buscar Nota por Periodo     |");
+            System.out.println("| 4 --> Actualizar Nota             |");
+            System.out.println("| 5 --> Eliminar Nota               |");
+            System.out.println("| 0 --> Volver                      |");
+            System.out.print("| Seleccione una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine(); // Limpiar buffer
+
+            switch (opcion) {
+                case 1:
+                    registrarNota();
+                    break;
+                case 2:
+                    listarNotas();
+                    break;
+                case 3:
+                    System.out.print("Periodo a buscar: ");
+                    buscarNota(sc.nextLine());
+                    break;
+                case 4:
+                    actualizarNota();
+                    break;
+                case 5:
+                    eliminarNota();
+                    break;
+            }
         } while (opcion != 0);
-}
+    }
+
     public static void menuAsignaturas() {
 
         int opcion;
@@ -88,18 +98,23 @@ public static void menuNotas() {
             System.out.println("| 0 --> Volver");
             System.out.print("| Seleccione una opción: ");
             opcion = sc.nextInt();
- System.out.println("|-----------------------------------|");
+            System.out.println("|-----------------------------------|");
             switch (opcion) {
-                case 1: registrarAsignatura(); 
-                break;
-                case 2: listarAsignatura(); 
-                break;
-                case 3: buscarAsignatura(); 
-                break;
-                case 4: actualizarAsignatura(); 
-                break;
-                case 5: eliminarAsignatura(); 
-                break;
+                case 1:
+                    registrarAsignatura();
+                    break;
+                case 2:
+                    listarAsignatura();
+                    break;
+                case 3:
+                    buscarAsignatura();
+                    break;
+                case 4:
+                    actualizarAsignatura();
+                    break;
+                case 5:
+                    eliminarAsignatura();
+                    break;
             }
 
         } while (opcion != 0);
@@ -119,7 +134,7 @@ public static void menuNotas() {
             System.out.println("| 0 --> Volver");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
- System.out.println("|-----------------------------------|");
+            System.out.println("|-----------------------------------|");
             switch (opcion) {
                 case 1:
                     registrarEstudiante();
@@ -149,8 +164,8 @@ public static void menuNotas() {
 
         System.out.println("Digite el Nombre:");
         String nombre = sc.nextLine();
-        
-          System.out.println("Digite el Apellido:");
+
+        System.out.println("Digite el Apellido:");
         String apellido = sc.nextLine();
 
         System.out.println("Digite la edad:");
@@ -220,7 +235,7 @@ public static void menuNotas() {
 
                 System.out.println("Digite el nuevo nombre:");
                 String nuevoNombre = sc.nextLine();
-                
+
                 System.out.println("Digite el nuevo apellido:");
                 String nuevoApellido = sc.nextLine();
 
@@ -234,18 +249,20 @@ public static void menuNotas() {
                 return;
             }
         }
-         System.out.println("No se encontró un estudiante con ese ID.");  //<--si no encuentra entonces esa Id
+        System.out.println("No se encontró un estudiante con ese ID.");  //<--si no encuentra entonces esa Id
     }
-public static void limpiarLaConsola() { //<--como tal no limpia la consola, mueve el texto, o mas bien lo empuja.
-    for (int i = 0; i < 3; i++) {
-        System.out.println();
+
+    public static void limpiarLaConsola() { //<--como tal no limpia la consola, mueve el texto, o mas bien lo empuja.
+        for (int i = 0; i < 3; i++) {
+            System.out.println();
+        }
     }
-}
-public static void registrarAsignatura() {
- sc.nextLine();
+
+    public static void registrarAsignatura() {
+        sc.nextLine();
         System.out.print("Codigo: ");
         String codigo = sc.nextLine();
-       
+
         // Verificar que no exista el codigo
         for (Asignatura a : asignaturas) {
             if (a.getCodigo().equalsIgnoreCase(codigo)) {
@@ -320,64 +337,65 @@ public static void registrarAsignatura() {
 
     public static void actualizarAsignatura() {
 
-    if (asignaturas.isEmpty()) {
-        System.out.println("No hay asignaturas registradas.");
-        return;
-    }
-
-    sc.nextLine(); // limpiar buffer
-    System.out.print("Ingrese el codigo de la asignatura a actualizar: ");
-    String codigo = sc.nextLine();
-
-    for (Asignatura a : asignaturas) {
-
-        if (a.getCodigo().equalsIgnoreCase(codigo)) {
-
-            System.out.print("Nuevo nombre: ");
-            String nombre = sc.nextLine();
-
-            System.out.print("Nuevos creditos: ");
-            int creditos = sc.nextInt();
-            sc.nextLine();
-
-            System.out.print("Nuevo docente: ");
-            String docente = sc.nextLine();
-
-            a.setNombre(nombre);
-            a.setCreditos(creditos);
-            a.setDocentes(docente);
-
-            System.out.println("Asignatura actualizada correctamente.");
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
             return;
         }
+
+        sc.nextLine(); // limpiar buffer
+        System.out.print("Ingrese el codigo de la asignatura a actualizar: ");
+        String codigo = sc.nextLine();
+
+        for (Asignatura a : asignaturas) {
+
+            if (a.getCodigo().equalsIgnoreCase(codigo)) {
+
+                System.out.print("Nuevo nombre: ");
+                String nombre = sc.nextLine();
+
+                System.out.print("Nuevos creditos: ");
+                int creditos = sc.nextInt();
+                sc.nextLine();
+
+                System.out.print("Nuevo docente: ");
+                String docente = sc.nextLine();
+
+                a.setNombre(nombre);
+                a.setCreditos(creditos);
+                a.setDocentes(docente);
+
+                System.out.println("Asignatura actualizada correctamente.");
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
     }
 
-    System.out.println("Asignatura no encontrada.");
-}
-    
-    public static  void eliminarAsignatura() {
+    public static void eliminarAsignatura() {
 
-    if (asignaturas.isEmpty()) {
-        System.out.println("No hay asignaturas registradas.");
-        return;
-    }
-
-    sc.nextLine(); 
-    System.out.print("Ingrese el codigo de la asignatura a eliminar: ");
-    String codigo = sc.nextLine();
-
-    for (int i = 0; i < asignaturas.size(); i++) {
-
-        if (asignaturas.get(i).getCodigo().equalsIgnoreCase(codigo)) {
-
-            asignaturas.remove(i);
-            System.out.println("Asignatura eliminada correctamente.");
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
             return;
         }
+
+        sc.nextLine();
+        System.out.print("Ingrese el codigo de la asignatura a eliminar: ");
+        String codigo = sc.nextLine();
+
+        for (int i = 0; i < asignaturas.size(); i++) {
+
+            if (asignaturas.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+
+                asignaturas.remove(i);
+                System.out.println("Asignatura eliminada correctamente.");
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
     }
 
-    System.out.println("Asignatura no encontrada.");
-}
     public static void registrarNota() {
         if (estudiantes.isEmpty() || asignaturas.isEmpty()) {
             System.out.println("Debe haber estudiantes y asignaturas registrados primero.");
@@ -386,13 +404,21 @@ public static void registrarAsignatura() {
         System.out.print("ID del Estudiante: ");
         int idEst = sc.nextInt();
         Estudiante est = null;
-        for (Estudiante e : estudiantes) if (e.getId() == idEst) est = e;
+        for (Estudiante e : estudiantes) {
+            if (e.getId() == idEst) {
+                est = e;
+            }
+        }
 
         sc.nextLine();
         System.out.print("Código Asignatura: ");
         String codAsig = sc.nextLine();
         Asignatura asig = null;
-        for (Asignatura a : asignaturas) if (a.getCodigo().equalsIgnoreCase(codAsig)) asig = a;
+        for (Asignatura a : asignaturas) {
+            if (a.getCodigo().equalsIgnoreCase(codAsig)) {
+                asig = a;
+            }
+        }
 
         if (est != null && asig != null) {
             System.out.print("Periodo: ");
@@ -407,8 +433,12 @@ public static void registrarAsignatura() {
     }
 
     public static void listarNotas() {
-        if (notas.isEmpty()) System.out.println("No hay notas.");
-        for (Nota n : notas) System.out.println(n);
+        if (notas.isEmpty()) {
+            System.out.println("No hay notas.");
+        }
+        for (Nota n : notas) {
+            System.out.println(n);
+        }
     }
 
     public static void buscarNota(String periodo) {
