@@ -98,7 +98,7 @@ public class Nota {
         return false;
         
     }
-     
+     //se haran correciones al codigo
     @Override
     public String toString() {
         return "Nota{" +
