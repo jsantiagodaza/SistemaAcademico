@@ -78,14 +78,33 @@ class Asignatura {
     sc.nextLine(); // limpiar salto
 
     System.out.print("Docente: ");
-    String docente = sc.nextLine();
+    String docentes = sc.nextLine();
 
-    Asignatura nueva = new Asignatura(codigo, nombre, creditos, docente);
+    Asignatura nueva = new Asignatura(codigo, nombre, creditos, docentes);
     asignaturas.add(nueva);
 
     System.out.println("Asignatura registrada correctamente.");
 }
-        
+       
+    public void listarAsignaturas() {
+
+    if (asignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    System.out.println("\n--- LISTA DE ASIGNATURAS ---");
+
+    for (Asignatura a : asignaturas) {
+        System.out.println(
+                "Codigo: " + a.getCodigo()
+                + " | Nombre: " + a.getNombre()
+                + " | Creditos: " + a.getCreditos()
+                + " | Docente: " + a.getDocentes()
+        );
+    }
+}
+    
     }
     
     
