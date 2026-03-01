@@ -8,29 +8,83 @@ public class SistemaAcademico {
     static ArrayList<Asignatura> asignaturas = new ArrayList<>(); //<--el arrayList para Asignatura
     static ArrayList<Estudiante> estudiantes = new ArrayList<>(); //<--el arrayList para Estudiante
     static ArrayList<Nota> notas = new ArrayList<>(); //<--el arrayList para la Nota
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        mostrarMenu(); //<--el main solo muestra el menú
-    }
+        int opcionPrincipal;
 
-    //De aquí en adelante son las funciones y Metodos que muestra el main Por si quieren entenderlo mejor
-    public static void mostrarMenu() { //<--Con esto, el main ejecuta el menú principal
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
         do {
-            System.out.println("_______________________________");
-            System.out.println("|             SISTEMA ACADEMICO            |");
-            System.out.println("_______________________________");
-            System.out.println("|1 --> Registro de Estudiante");
-            System.out.println("|2 --> Listar Estudiantes");
-            System.out.println("|3 --> Buscar Estudiante");
-            System.out.println("|4 --> Actualizar a un Estudiante");
-            System.out.println("|5 --> Eliminar a un Estudiante");
-            System.out.println("|6 --> Salir del sistema");
+            System.out.println("\n===== SISTEMA ACADÉMICO =====");
+            System.out.println("1. Gestión de Estudiantes");
+            System.out.println("2. Gestión de Asignaturas");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            opcionPrincipal = sc.nextInt();
+
+            switch (opcionPrincipal) {
+                case 1:
+                    menuEstudiantes();
+                    break;
+
+                case 2:
+                    menuAsignaturas();
+                    break;
+
+                case 0:
+                    System.out.println("Sistema finalizado.");
+                    break;
+
+                default:
+                    System.out.println("Opción inválida.");
+            }
+
+        } while (opcionPrincipal != 0);
+
+    }
+
+    public static void menuAsignaturas() {
+
+        int opcion;
+
+        do {
+            System.out.println("\n--- GESTIÓN DE ASIGNATURAS ---");
+            System.out.println("1. Registrar");
+            System.out.println("2. Listar");
+            System.out.println("3. Buscar");
+            System.out.println("4. Actualizar");
+            System.out.println("5. Eliminar");
+            System.out.println("0. Volver");
+            System.out.print("Seleccione una opción: ");
+
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                //case 1: registrarAsignatura(); break;
+                //case 2: listarAsignaturas(); break;
+                //case 3: buscarAsignatura(); break;
+                //case 4: actualizarAsignatura(); break;
+                //case 5: eliminarAsignatura(); break;
+            }
+
+        } while (opcion != 0);
+    }
+
+    public static void menuEstudiantes() {
+
+        int opcion;
+
+        do {
+            System.out.println("\n--- GESTIÓN DE ESTUDIANTES ---");
+            System.out.println("1. Registrar");
+            System.out.println("2. Listar");
+            System.out.println("3. Buscar");
+            System.out.println("4. Actualizar");
+            System.out.println("5. Eliminar");
+            System.out.println("0. Volver");
+            System.out.print("Seleccione una opción: ");
+
+            opcion = sc.nextInt();
 
             switch (opcion) {
                 case 1:
@@ -48,14 +102,9 @@ public class SistemaAcademico {
                 case 5:
                     eliminarEstudiante();
                     break;
-
-                case 6:
-                    System.out.println("Saliendo...");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
             }
-        } while (opcion != 6);
+
+        } while (opcion != 0);
     }
 
     public static void registrarEstudiante() { //<--Para registrar a los estudiantes
@@ -125,8 +174,6 @@ public class SistemaAcademico {
         System.out.println("Digite el ID del estudiante a actualizar:");
         int id = sc.nextInt();
         sc.nextLine();
-        
-        
 
         for (Estudiante e : estudiantes) {
             if (e.getId() == id) { //<--si lo encuentra entonces si se puede hacer el cambio de la información
@@ -150,4 +197,5 @@ public class SistemaAcademico {
             System.out.println("No se encontró un estudiante con ese ID.");  //<--si no encuentra entonces esa Id
         }
     }
+
 }
