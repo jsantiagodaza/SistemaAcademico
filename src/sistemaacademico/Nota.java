@@ -88,6 +88,15 @@ public class Nota {
         }
         return false;
     }
+     
+     public static boolean eliminarNota(String periodo) {
+        Nota n = buscarNota(periodo);
+        if (n != null) {
+            listaNotas.remove(n);
+            return true;
+        }
+        return false;
+    }
 }
 
 
