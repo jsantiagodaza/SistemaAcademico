@@ -17,6 +17,7 @@ public class SistemaAcademico {
             System.out.println("\n|         SISTEMA ACADÉMICO        |");
             System.out.println("|   1 --> Gestión de Estudiantes ");
             System.out.println("|   2 --> Gestión de Asignaturas ");
+            System.out.println("|   3--> Gestión de Notas ");
             System.out.println("|   0 --> Salir del sistema");
             System.out.print("|  Seleccione una opción: ");
             opcionPrincipal = sc.nextInt();
@@ -29,6 +30,12 @@ public class SistemaAcademico {
                 case 2:
                     menuAsignaturas();
                     break;
+                case 3:
+                    
+                    
+                    //aquí pondré el menú de notas
+                    break;
+                
 
                 case 0:
                     limpiarLaConsola();
@@ -347,4 +354,5 @@ public static void registrarAsignatura() {
 
     System.out.println("Asignatura no encontrada.");
 }
+    
 }
