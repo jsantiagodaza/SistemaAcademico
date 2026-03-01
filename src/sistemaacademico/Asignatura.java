@@ -1,12 +1,12 @@
-
 package sistemaacademico;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 class Asignatura {
-     ArrayList<Asignatura> asignaturas = new ArrayList<>();
+
+    ArrayList<Asignatura> asignaturas = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
     private String codigo;
     private String nombre;
     private int creditos;
@@ -53,60 +53,82 @@ class Asignatura {
     public void setDocentes(String docentes) {
         this.docentes = docentes;
     }
-    
-    
-    public void registrarasignatura(){
-        
-        Scanner sc = new Scanner(System.in);
-        
-         System.out.print("Codigo: ");
-    String codigo = sc.nextLine();
 
-    // Verificar que no exista el codigo
-    for (Asignatura a : asignaturas) {
-        if (a.getCodigo().equalsIgnoreCase(codigo)) {
-            System.out.println("Ya existe una asignatura con ese codigo.");
+    public void registrarasignatura() {
+
+        System.out.print("Codigo: ");
+        String codigo = sc.nextLine();
+
+        // Verificar que no exista el codigo
+        for (Asignatura a : asignaturas) {
+            if (a.getCodigo().equalsIgnoreCase(codigo)) {
+                System.out.println("Ya existe una asignatura con ese codigo.");
+                return;
+            }
+        }
+
+        System.out.print("Nombre: ");
+        String nombre = sc.nextLine();
+
+        System.out.print("Creditos: ");
+        int creditos = sc.nextInt();
+        sc.nextLine(); // limpiar salto
+
+        System.out.print("Docente: ");
+        String docentes = sc.nextLine();
+
+        Asignatura nueva = new Asignatura(codigo, nombre, creditos, docentes);
+        asignaturas.add(nueva);
+
+        System.out.println("Asignatura registrada correctamente.");
+    }
+
+    public void listarAsignaturas() {
+
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
             return;
+        }
+
+        System.out.println("\n--- LISTA DE ASIGNATURAS ---");
+
+        for (Asignatura a : asignaturas) {
+            System.out.println(
+                    "Codigo: " + a.getCodigo()
+                    + " | Nombre: " + a.getNombre()
+                    + " | Creditos: " + a.getCreditos()
+                    + " | Docente: " + a.getDocentes()
+            );
         }
     }
 
-    System.out.print("Nombre: ");
-    String nombre = sc.nextLine();
+    public void buscarAsignatura() {
 
-    System.out.print("Creditos: ");
-    int creditos = sc.nextInt();
-    sc.nextLine(); // limpiar salto
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+            return;
+        }
 
-    System.out.print("Docente: ");
-    String docentes = sc.nextLine();
+        sc.nextLine(); // limpiar buffer
+        System.out.print("Ingrese el codigo de la asignatura a buscar: ");
+        String codigo = sc.nextLine();
 
-    Asignatura nueva = new Asignatura(codigo, nombre, creditos, docentes);
-    asignaturas.add(nueva);
+        for (Asignatura a : asignaturas) {
 
-    System.out.println("Asignatura registrada correctamente.");
+            if (a.getCodigo().equalsIgnoreCase(codigo)) {
+
+                System.out.println("Asignatura encontrada:");
+                System.out.println(
+                        "Codigo: " + a.getCodigo()
+                        + " | Nombre: " + a.getNombre()
+                        + " | Creditos: " + a.getCreditos()
+                        + " | Docente: " + a.getDocentes()
+                );
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
+    }
+
 }
-       
-    public void listarAsignaturas() {
-
-    if (asignaturas.isEmpty()) {
-        System.out.println("No hay asignaturas registradas.");
-        return;
-    }
-
-    System.out.println("\n--- LISTA DE ASIGNATURAS ---");
-
-    for (Asignatura a : asignaturas) {
-        System.out.println(
-                "Codigo: " + a.getCodigo()
-                + " | Nombre: " + a.getNombre()
-                + " | Creditos: " + a.getCreditos()
-                + " | Docente: " + a.getDocentes()
-        );
-    }
-}
-    
-    }
-    
-    
-    
-
