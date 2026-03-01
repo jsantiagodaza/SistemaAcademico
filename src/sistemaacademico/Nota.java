@@ -58,6 +58,18 @@ public class Nota {
     listaNotas.add(n);
     return true;
 }
+    
+    public static String listarNotas() {
+        if (listaNotas.isEmpty()) {
+            return "No hay notas registradas";
+        }
+
+        String salida = "LISTA DE NOTAS\n";
+        for (Nota n : listaNotas) {
+            salida += n + "\n";
+        }
+        return salida;
+    }
 }
 
 
