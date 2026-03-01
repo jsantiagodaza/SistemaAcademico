@@ -15,14 +15,13 @@ public class SistemaAcademico {
 
         do {
             limpiarLaConsola(); //<--para que de ese aspecto mas pulcro 
-            System.out.println("\n===== SISTEMA ACADÉMICO =====");
-            System.out.println("1. Gestión de Estudiantes");
-            System.out.println("2. Gestión de Asignaturas");
-            System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
-
+            System.out.println("\n|         SISTEMA ACADÉMICO        |");
+            System.out.println("|   1 --> Gestión de Estudiantes ");
+            System.out.println("|   2 --> Gestión de Asignaturas ");
+            System.out.println("|   0 --> Salir del sistema");
+            System.out.print("|  Seleccione una opción: ");
             opcionPrincipal = sc.nextInt();
-
+ System.out.println("|-----------------------------------|");
             switch (opcionPrincipal) {
                 case 1:
                     menuEstudiantes();
@@ -33,11 +32,12 @@ public class SistemaAcademico {
                     break;
 
                 case 0:
-                    System.out.println("Sistema finalizado.");
+                    limpiarLaConsola();
+                    System.out.println("Ha finalizado correctamente, gracias por confiar en los Falcons :)");
                     break;
 
                 default:
-                    System.out.println("Opción inválida.");
+                    System.out.println("esa opción no está dentro del menú, ingrese una opción valida.");
             }
 
         } while (opcionPrincipal != 0);
@@ -49,17 +49,16 @@ public class SistemaAcademico {
         int opcion;
         limpiarLaConsola(); //<--para que de ese aspecto mas pulcro 
         do {
-            System.out.println("\n--- GESTIÓN DE ASIGNATURAS ---");
-            System.out.println("1. Registrar");
-            System.out.println("2. Listar");
-            System.out.println("3. Buscar");
-            System.out.println("4. Actualizar");
-            System.out.println("5. Eliminar");
-            System.out.println("0. Volver");
-            System.out.print("Seleccione una opción: ");
-
+            System.out.println("\n|         OPCIONES DE ASIGNATURA        |");
+            System.out.println("| 1 --> Registrar");
+            System.out.println("| 2 --> Listar");
+            System.out.println(" |3 --> Buscar");
+            System.out.println("| 4 --> Actualizar");
+            System.out.println("| 5 --> Eliminar");
+            System.out.println("| 0 --> Volver");
+            System.out.print("| Seleccione una opción: ");
             opcion = sc.nextInt();
-
+ System.out.println("|-----------------------------------|");
             switch (opcion) {
                 //case 1: registrarAsignatura(); break;
                 //case 2: listarAsignaturas(); break;
@@ -76,17 +75,16 @@ public class SistemaAcademico {
         int opcion;
 
         do {
-            System.out.println("\n--- GESTIÓN DE ESTUDIANTES ---");
-            System.out.println("1. Registrar");
-            System.out.println("2. Listar");
-            System.out.println("3. Buscar");
-            System.out.println("4. Actualizar");
-            System.out.println("5. Eliminar");
-            System.out.println("0. Volver");
+            System.out.println("\n|         OPCIONES DE ESTUDIANTES        |");
+            System.out.println("| 1 --> Registrar");
+            System.out.println("| 2 --> Listar");
+            System.out.println("| 3 --> Buscar");
+            System.out.println("| 4 --> Actualizar");
+            System.out.println("| 5 --> Eliminar");
+            System.out.println("| 0 --> Volver");
             System.out.print("Seleccione una opción: ");
-
             opcion = sc.nextInt();
-
+ System.out.println("|-----------------------------------|");
             switch (opcion) {
                 case 1:
                     registrarEstudiante();
