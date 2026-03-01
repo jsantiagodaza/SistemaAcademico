@@ -452,18 +452,45 @@ public class SistemaAcademico {
     }
 
     public static void actualizarNota() {
-        System.out.print("Periodo de la nota: ");
-        String per = sc.nextLine();
-        for (Nota n : notas) {
-            if (n.getperiodo().equalsIgnoreCase(per)) {
-                System.out.print("Nuevo valor: ");
-                n.setValor(sc.nextDouble());
-                System.out.println("Actualizada.");
-                return;
-            }
+    System.out.print("Periodo de la nota: ");
+    String per = sc.nextLine();
+
+    // Listar todas las notas que coincidan con ese periodo
+    ArrayList<Nota> encontradas = new ArrayList<>();
+    for (Nota n : notas) {
+        if (n.getperiodo().equalsIgnoreCase(per)) {
+            encontradas.add(n);
         }
-        System.out.println("No encontrada.");
     }
+
+    if (encontradas.isEmpty()) {
+        System.out.println("No se encontró ninguna nota con ese periodo.");
+        return;
+    }
+
+    // Mostrar las notas encontradas numeradas
+    System.out.println("Notas encontradas con ese periodo:");
+    for (int i = 0; i < encontradas.size(); i++) {
+        System.out.println((i + 1) + ") " + encontradas.get(i));
+    }
+
+    // Pedir al usuario que elija cuál actualizar
+    System.out.print("¿Cuál desea actualizar? (número): ");
+    int eleccion = sc.nextInt();
+    sc.nextLine();
+
+    if (eleccion < 1 || eleccion > encontradas.size()) {
+        System.out.println("Opción inválida.");
+        return;
+    }
+
+    System.out.print("Nuevo valor (0.0 - 5.0): ");
+    double nuevoValor = sc.nextDouble();
+    sc.nextLine();
+
+    encontradas.get(eleccion - 1).setValor(nuevoValor);
+    System.out.println("Nota actualizada correctamente.");
+}
 
     public static void eliminarNota() {
         System.out.print("Periodo a eliminar: ");
