@@ -11,9 +11,10 @@ public class SistemaAcademico {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int opcionPrincipal;
+        int opcionPrincipal; 
 
         do {
+            limpiarLaConsola(); //<--para que de ese aspecto mas pulcro 
             System.out.println("\n===== SISTEMA ACADÉMICO =====");
             System.out.println("1. Gestión de Estudiantes");
             System.out.println("2. Gestión de Asignaturas");
@@ -46,7 +47,7 @@ public class SistemaAcademico {
     public static void menuAsignaturas() {
 
         int opcion;
-
+        limpiarLaConsola(); //<--para que de ese aspecto mas pulcro 
         do {
             System.out.println("\n--- GESTIÓN DE ASIGNATURAS ---");
             System.out.println("1. Registrar");
@@ -198,5 +199,9 @@ public class SistemaAcademico {
             System.out.println("No se encontró un estudiante con ese ID.");  //<--si no encuentra entonces esa Id
         }
     }
-
+public static void limpiarLaConsola() { //<--como tal no limpia la consola, mueve el texto, o mas bien lo empuja.
+    for (int i = 0; i < 3; i++) {
+        System.out.println();
+    }
+}
 }
