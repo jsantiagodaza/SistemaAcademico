@@ -2,7 +2,6 @@ package sistemaacademico;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class SistemaAcademico {
 
     static ArrayList<Asignatura> asignaturas = new ArrayList<>(); //<--el arrayList para Asignatura
@@ -60,11 +59,16 @@ public class SistemaAcademico {
             opcion = sc.nextInt();
  System.out.println("|-----------------------------------|");
             switch (opcion) {
-                //case 1: registrarAsignatura(); break;
-                //case 2: listarAsignaturas(); break;
-                //case 3: buscarAsignatura(); break;
-                //case 4: actualizarAsignatura(); break;
-                //case 5: eliminarAsignatura(); break;
+                case 1: registrarAsignatura(); 
+                break;
+                case 2: listarAsignatura(); 
+                break;
+                case 3: buscarAsignatura(); 
+                break;
+                case 4: actualizarAsignatura(); 
+                break;
+                case 5: eliminarAsignatura(); 
+                break;
             }
 
         } while (opcion != 0);
@@ -205,5 +209,142 @@ public static void limpiarLaConsola() { //<--como tal no limpia la consola, muev
     for (int i = 0; i < 3; i++) {
         System.out.println();
     }
+}
+public static void registrarAsignatura() {
+
+        System.out.print("Codigo: ");
+        String codigo = sc.nextLine();
+        sc.nextLine();
+        // Verificar que no exista el codigo
+        for (Asignatura a : asignaturas) {
+            if (a.getCodigo().equalsIgnoreCase(codigo)) {
+                System.out.println("Ya existe una asignatura con ese codigo.");
+                return;
+            }
+        }
+
+        System.out.print("Nombre: ");
+        String nombre = sc.nextLine();
+
+        System.out.print("Creditos: ");
+        int creditos = sc.nextInt();
+        sc.nextLine(); // limpiar salto
+
+        System.out.print("Docente: ");
+        String docentes = sc.nextLine();
+
+        Asignatura nueva = new Asignatura(codigo, nombre, creditos, docentes);
+        asignaturas.add(nueva);
+
+        System.out.println("Asignatura registrada correctamente.");
+    }
+
+    public static void listarAsignatura() {
+
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+            return;
+        }
+
+        System.out.println("\n|           LISTA DE ASIGNATURAS                    |");
+
+        for (Asignatura a : asignaturas) {
+            System.out.println(
+                    "Codigo: " + a.getCodigo()
+                    + " | Nombre: " + a.getNombre()
+                    + " | Creditos: " + a.getCreditos()
+                    + " | Docente: " + a.getDocentes()
+            );
+        }
+    }
+
+    public static void buscarAsignatura() {
+
+        if (asignaturas.isEmpty()) {
+            System.out.println("No hay asignaturas registradas.");
+            return;
+        }
+
+        sc.nextLine(); // limpiar buffer
+        System.out.print("Ingrese el codigo de la asignatura a buscar: ");
+        String codigo = sc.nextLine();
+
+        for (Asignatura a : asignaturas) {
+
+            if (a.getCodigo().equalsIgnoreCase(codigo)) {
+
+                System.out.println("Asignatura encontrada:");
+                System.out.println(
+                        "Codigo: " + a.getCodigo()
+                        + " | Nombre: " + a.getNombre()
+                        + " | Creditos: " + a.getCreditos()
+                        + " | Docente: " + a.getDocentes()
+                );
+                return;
+            }
+        }
+
+        System.out.println("Asignatura no encontrada.");
+    }
+
+    public static void actualizarAsignatura() {
+
+    if (asignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    sc.nextLine(); // limpiar buffer
+    System.out.print("Ingrese el codigo de la asignatura a actualizar: ");
+    String codigo = sc.nextLine();
+
+    for (Asignatura a : asignaturas) {
+
+        if (a.getCodigo().equalsIgnoreCase(codigo)) {
+
+            System.out.print("Nuevo nombre: ");
+            String nombre = sc.nextLine();
+
+            System.out.print("Nuevos creditos: ");
+            int creditos = sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Nuevo docente: ");
+            String docente = sc.nextLine();
+
+            a.setNombre(nombre);
+            a.setCreditos(creditos);
+            a.setDocentes(docente);
+
+            System.out.println("Asignatura actualizada correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}
+    
+    public static  void eliminarAsignatura() {
+
+    if (asignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    sc.nextLine(); 
+    System.out.print("Ingrese el codigo de la asignatura a eliminar: ");
+    String codigo = sc.nextLine();
+
+    for (int i = 0; i < asignaturas.size(); i++) {
+
+        if (asignaturas.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+
+            asignaturas.remove(i);
+            System.out.println("Asignatura eliminada correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
 }
 }
