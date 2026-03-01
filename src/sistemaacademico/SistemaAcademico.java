@@ -211,10 +211,10 @@ public static void limpiarLaConsola() { //<--como tal no limpia la consola, muev
     }
 }
 public static void registrarAsignatura() {
-
+ sc.nextLine();
         System.out.print("Codigo: ");
         String codigo = sc.nextLine();
-        sc.nextLine();
+       
         // Verificar que no exista el codigo
         for (Asignatura a : asignaturas) {
             if (a.getCodigo().equalsIgnoreCase(codigo)) {

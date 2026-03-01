@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 class Asignatura {
 
-    ArrayList<Asignatura> asignaturas = new ArrayList<>();
-    Scanner sc = new Scanner(System.in);
+
     private String codigo;
     private String nombre;
     private int creditos;
