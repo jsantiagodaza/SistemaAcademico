@@ -71,13 +71,22 @@ public class Nota {
         return salida;
     }
     
-    public static Nota buscarNota(String noNota) {
+    public static Nota buscarNota(String periodo) {
         for (Nota n : listaNotas) {
-            if (n.periodo.equalsIgnoreCase(noNota)) {
+            if (n.periodo.equalsIgnoreCase(periodo)) {
                 return n;
             }
         }
         return null;
+    }
+    
+     public static boolean actualizarNota(String periodo, double nuevoValor) {
+        Nota n = buscarNota(periodo);
+        if (n != null) {
+            n.setValor(nuevoValor);
+            return true;
+        }
+        return false;
     }
 }
 
