@@ -96,6 +96,15 @@ public class Nota {
             return true;
         }
         return false;
+        
+    }
+     
+    @Override
+    public String toString() {
+        return "Nota{" +
+                "codigo='" + periodo + '\'' +
+                ", valor=" + valor +
+                '}';
     }
 }
 
