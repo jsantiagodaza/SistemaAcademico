@@ -1,9 +1,12 @@
 
 package sistemaacademico;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 class Asignatura {
-    
+     ArrayList<Asignatura> asignaturas = new ArrayList<>();
     private String codigo;
     private String nombre;
     private int creditos;
@@ -52,6 +55,39 @@ class Asignatura {
     }
     
     
-    
-    
+    public void registrarasignatura(){
+        
+        Scanner sc = new Scanner(System.in);
+        
+         System.out.print("Codigo: ");
+    String codigo = sc.nextLine();
+
+    // Verificar que no exista el codigo
+    for (Asignatura a : asignaturas) {
+        if (a.getCodigo().equalsIgnoreCase(codigo)) {
+            System.out.println("Ya existe una asignatura con ese codigo.");
+            return;
+        }
+    }
+
+    System.out.print("Nombre: ");
+    String nombre = sc.nextLine();
+
+    System.out.print("Creditos: ");
+    int creditos = sc.nextInt();
+    sc.nextLine(); // limpiar salto
+
+    System.out.print("Docente: ");
+    String docente = sc.nextLine();
+
+    Asignatura nueva = new Asignatura(codigo, nombre, creditos, docente);
+    asignaturas.add(nueva);
+
+    System.out.println("Asignatura registrada correctamente.");
 }
+        
+    }
+    
+    
+    
+
