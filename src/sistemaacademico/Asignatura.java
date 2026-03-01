@@ -168,4 +168,27 @@ class Asignatura {
     System.out.println("Asignatura no encontrada.");
 }
     
+    public  void eliminarAsignatura() {
+
+    if (asignaturas.isEmpty()) {
+        System.out.println("No hay asignaturas registradas.");
+        return;
+    }
+
+    sc.nextLine(); 
+    System.out.print("Ingrese el codigo de la asignatura a eliminar: ");
+    String codigo = sc.nextLine();
+
+    for (int i = 0; i < asignaturas.size(); i++) {
+
+        if (asignaturas.get(i).getCodigo().equalsIgnoreCase(codigo)) {
+
+            asignaturas.remove(i);
+            System.out.println("Asignatura eliminada correctamente.");
+            return;
+        }
+    }
+
+    System.out.println("Asignatura no encontrada.");
+}
 }
