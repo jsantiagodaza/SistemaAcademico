@@ -45,6 +45,19 @@ public class Nota {
         return asignatura;
     }
  
+    public static boolean registrarNota(Nota n) {
+
+    if (n == null) {
+        System.out.println("Error: la nota es null");
+        return false;
+    }
+    if (n.getValor() < 0 || n.getValor() > 5) {
+        System.out.println("Error: la nota debe estar entre 0 y 5");
+        return false;
+    }
+    listaNotas.add(n);
+    return true;
+}
 }
 
 
